@@ -41,9 +41,9 @@ namespace meow
                         Console.WriteLine("Bro cmon...");
                         break;
                 }
-               
 
-                    Console.WriteLine();
+
+                Console.WriteLine();
                 Console.WriteLine("Input your value A :3 ");
                 a = int.Parse(Console.ReadLine());
 
@@ -51,9 +51,9 @@ namespace meow
                 Console.WriteLine("Input your value B :3 ");
 
                 b = int.Parse(Console.ReadLine());
-               
+
                 {
-                   
+
                     try
                     {
 
@@ -64,23 +64,29 @@ namespace meow
                     }
                     catch (DivideByZeroException)
                     {
-                       
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine();
-                        Console.WriteLine("You can divide by zero :(");
+                        Console.WriteLine("\a You can divide by zero :(");
+                        Console.ResetColor();
                         attempts++;
+                        Console.ReadKey();
+                        Console.Clear();
                     }
+                   
                 }
-            } while (a == 0 || b == 0); 
-
-            Console.WriteLine("Looks fine, your number is " + a + ", " + b  );
-
+            } while (a == 0 || b == 0);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Looks fine, your number is " + a + ", " + b);
+            Console.ResetColor();
             if (attempts >= 1)
             {
                 Console.WriteLine("------------------------------------------------");
                 Console.WriteLine("It took you " + attempts + " attempts");
                 Console.WriteLine("------------------------------------------------");
             }
+            
             Console.ReadLine();
+            
 
         }
 
